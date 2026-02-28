@@ -1,0 +1,84 @@
+#input array A[1...n]
+def selection_sort
+    let B be am empty array
+    while A is not empty
+        #find the index of maximum item
+        max_idx = 1
+        for i = 1 to sizeof(A)
+            if A[i] > a[max_idx]
+                max_idx = i
+
+        #move the maximum element 
+        insert A[max_idx] at the front of B
+        remove item at position max_idx from A 
+    return B 
+
+#input array A[1...n]
+#input i is the position to fix down 
+#input size is A.size()
+def fix_down(A, i, size)
+    tmp = A[i];
+    while ((c = 2 * idx + 1) < mSize)
+        if (c + 1 <= size && A[c] < A[c+1]) c++;
+        if (A[c] < tmp) break;
+        A[i] = A[c];
+        i = c;
+    A[i] = tmp; 
+
+
+#input array A[1...n]
+def heap_sort(A) 
+    pos = n
+    for i = n/2 to 1
+        #fix_down will perform heap's fix down at position i 
+        # assuming the heap is in the array A[1..pos]
+        fix_down(A, i, pos);
+    
+    while pos > 1
+        swap(A[1], A)
+        fix_down(A, 1, pos);
+    return A
+
+#insertion sort 
+def insert_sort
+    pos = n-1
+    while pos > 0
+        # find minimum i in the range [pos+1 .. n] such that
+        # A[pos] <= A[i]
+        # if no such i exist, let i be n
+        i = pos + 1
+        while (i <= n && A[pos] > A[i])
+            i = i + 1
+
+        #insert A[pos] before i
+        j = pos
+        tmp = A[pos]
+        while (j < i)
+            A[j] = A[j+1];
+            j = j + 1
+        A[i] = pos
+
+        pos = pos - 1
+end
+
+#Shellsort
+#input array A[1..n]
+def shell_sort 
+    gaps = [701, 301, 132, 57, 23, 10, 4, 1]
+    for G in gaps
+
+        #for each value of G, we do G group
+        for round = n down to n - gap + 1
+            #in each group,, we just do the insertion sort
+            #   where each element is G item aparts
+            pos = round - G
+            while pos - G 
+                tmp = A[pos]
+                i = pos + G 
+                while  (i <= n && tmp > A[i])
+                    A[i-G] = A[i]
+                    i = i + G 
+                A[i-G] = tmp
+
+                pos = pos - 1
+end

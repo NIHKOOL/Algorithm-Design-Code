@@ -1,0 +1,290 @@
+def bsearch_slow(A[1..n], k) 
+    if n == 1
+        if A[1] == k
+            return 1
+        return -1
+    if A[1] == k 
+        return 1
+    else 
+    B = A[2..n]
+    r = bsearch_slow(B, k)
+    if r != -1
+        return r+1
+    else 
+        return r
+end 
+
+//v0.2: defferent division
+def bsearch_half(A[1..n], k)
+    if n == 1
+        if A[1] == k
+            return 1
+        return -1
+    m = n/2
+    B = A[1..m]
+    r = bsearch_half(B, k);
+    if r != -1
+        return r 
+    C = A[m+1..n]
+    r = bsearch_half(C, k);
+    if r != -1
+        return r + m
+    return -1
+end
+
+def bsearch(A[1..n], k)
+    if n == 1
+        if A[1] == k
+            return 1
+        return -1
+    else 
+        m = n/2
+        if A[m] => k
+            r = bsearch(A[1..m], k)
+        else 
+            r = bsearch(A[m+1..n], k)
+            if r != -1
+                r = r + m
+        return r;
+end
+
+//merge sort
+def merge_sort(A[1..n])
+    if n == 1
+        return A
+    m = n/2
+    B = merge_sort(A[1..m])
+    C = merge_sort(A[m+1..n])
+    A = merge(B, C)
+end
+
+def merge(B[1..m], C[1..n]) 
+    A = []
+    while (B is not empty) and (C is not empty)
+        if (B is not empty && C is not empty)
+            if B[1] < C[1]
+                move front of B to end of A
+            else 
+                move front of C to end of A
+        else 
+            if (C is empty)
+                move front of B to end of A
+            else 
+                move front of C to end of A
+    end
+    return A
+end
+     
+//quick sort
+def quick_sort(A[1..n], start, stop)
+    if start < stop
+        p = partition(A, start, stop)
+        quick_sort(A, start, p)
+        quick_sort(A, p+1, stop)
+end
+
+def partition(A[1..n], start, stop)
+    //can use anything exept stop
+    pivot = A[start];
+
+    left = start - 1
+    right = stop + 1
+    while (left < right)
+        do
+            left = left + 1
+        until (A[left] >= pivot)
+        do
+            right = right - 1
+        until (A[right] <= pivot)
+        if (left < right)
+            swap (A[left],A[right])
+        else 
+            return right
+    end
+    return right
+end 
+
+//modular expo
+def mod_expo(a, n, k)
+    if n == 1
+        return a mod k
+    if n mod 2 == 0
+        tmp = mod_expo(a, n/2, k)
+        return (tmp * tmp) mod k
+    else 
+        tmp = mod_expo(a, n/2, k)
+        tmp = (tmp * tmp) mod k
+        return (tmp * (a mod k)) mod k
+    end
+end 
+        
+//Maximum Subarray
+//Naive O(n^3)
+def mss_naive(A[1..n])
+    max = A[1]
+    for p from 1 to n
+        for q from p to n
+            sum = 0
+            for j from p to q
+                sum += A[j]
+            if (sum > max)
+                max = sum
+    return max
+end
+
+//prefix sum
+def mss_prefix_sum(A[1..n])
+    let S be an array [0..n]
+    S[0] = 0;
+    sum = 0;
+    for i from 1 to n
+        sum = sum + A[i]
+        S[i] = sum
+    
+    max = A[1]
+    for p from 1 to n
+        for q from p to n
+            sum = S[q] - S[p-1]
+            if (sum > max)
+                max = sum
+    return max
+end
+    
+//mss v0.1
+def mss1(A[1..n])
+    let S be an array [0..n]
+    S[0] = 0;
+    for i from 1 to n
+        S[i] = S[i-1] + A[i]
+
+    mss1(A, 1, n, S)
+end
+
+def mss1(A[1..n], start, stop, S)
+    if (start == stop) 
+        return A[start]
+    m = (start + stop) / 2
+    
+    r1 = mss1(A, start, m)
+    r2 = mss1(A, m+1, stop)
+
+    r3 = A[start]
+    for p from 1 to m
+        for q from m+1 to n
+            sum = S[q] - S[p-1]
+            if (sum > r3)
+                r3 = sum
+    return max(r1, r2, r3)
+end
+
+//this return sum A[a..b] in o(1)
+def get_sum(S, a, b)
+    return S[b] - S[a]
+end
+
+def mss(A, start, stop, S)
+    if (start == stop)
+        return A[start]
+    m = (start + stop) / 2
+
+    r1 = mss(A, start, m)
+    r2 = mss(A, m+1, stop)
+
+    //find max of B[start..m][m]
+    max_sum_left = get_sum(S, m, m)
+    for i in start to m-1
+        max_sum_left = max(max_sum_left, get_sum(S, i, m))
+
+    //find max of B[m..stop][stop]
+    max_sum_right = get_sum(S, m+1, m+1)
+    for j in m+2 to stop
+        max_sum_right = max(max_sum_right, get_sum(S, m+1, j))
+
+    r3 = max_sum_left + max_sum_right
+    return max(r1, r2, r3)
+end
+
+//srassen's Matrix multiplication
+//Naaive
+def multi(A[1..n][1..n], B[1..n][1..n])
+    let C[1..n][1..n] be a matrix of size n*n
+    for i in 1 to n 
+        for j in 1 to n
+            sum = 0
+            for k in 1 to n
+                sum += a[i][k] * b[k][j];
+            C[i][j] = sum
+end
+
+//Closest pair 
+//In grader hardddddd sud
+
+//Celebrity Problem
+//brute force
+def find_celeb(B)
+    for i from 1 to n
+        celeb = true 
+        //check i knows no one
+        for j from 1 to n 
+            if B[i][j]
+                celeb = false
+                break
+        if !celeb
+            continue
+        //check everyone know i
+        for j from 1 to n 
+            if i != j && !B[j][i]
+                celeb = false
+                break
+        return i
+    return -1
+end
+
+//D&C by half
+def celeb_dc(B, start, stop)
+    if (start == stop)
+        return start
+    m = (start + stop) / 2
+
+    r1 = celeb_dc(B, start, m)
+    //check if r1 is really celeb against the other half
+    if (r1 !=  -1)
+        for j from m+1 to stop
+            if (!B[j][r1] || B[r1][j])
+            r1 = -1
+            break
+    if (r1 != -1)
+        return r1
+
+    //check if r2 is really celeb against the other half 
+    r2 = celeb_dc(B, m+1, stop)
+    if (r2 != -1)
+        for j from 1 to m
+            if (!B[j][r2] || B[r2][j])
+                r2 = -1
+                break
+    if (r2 != -1)
+        return r1
+
+    return -1 
+end 
+
+//better version
+def celeb(B, start, stop)
+    if (strat == stop)
+        // smallest problem, just only one people
+        // but "start" might not be a celeb, must check
+        for j = 1 to n
+            if (B[start][j]) return -1
+            if (j != start && !B[j][start] return -1)
+        return start
+    
+        // check for any B[i][j] where i != j
+        // we use B[start][stop] because start != stop
+        // we will discard either start or stop from B
+        if B[start][stop]
+            return celeb(B, start+1, stop)
+        else 
+            return celeb(B, start, stop-1)
+end
+
