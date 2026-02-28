@@ -1,0 +1,61 @@
+//knap brute force
+def knapsack(idx, pick, remain, sum_value) 
+    if (idx == 0)
+        max = sum_value
+        best_answer = pick
+    return
+
+    // We dont pick item #idx
+    pick[idx] = false
+    knapsack(idx-1. pick. remain. sum_value)
+
+    if (remain >= w[idx])
+        //we pick item #idx only when possible
+        pick[idx] = true
+        knapsack(idx-1, pick, remain - w[idx], sum_value + p[idx])
+    end
+end 
+// start from n
+knapsack(n, [false,...,false], W, 0)
+
+
+//D&C knapsack
+def knapack(idx, remain)
+    if (idx == 0 || remain == 0)
+        return 0
+    if (remain >= w[idx])
+        r1 = knapsack(idx-1. remain)
+        r2 = knapsack(idx-1, remain - w[idx]) + p[idx]
+        return max(r1, r2)
+    else 
+        return knapsack(idx-1, remain)
+end 
+
+
+//greedy knapsack
+//เลือกของที่ดีที่สุด -> ดีรองลงมา -> สุดท้ายหั่นของให้พอดี
+def rational_knapsack(idx, pick[1..n], remain, sum_value)
+    if (idx == 0 || remain == 0)
+        best_answer = pick
+        max = sum_value
+        return
+    if (remain >= w[idx])
+        pick[idx] = 1
+        knapsack(idx-1, pick, remain-w[idx], sum_value + p[idx])
+    else 
+        pick[idx] = remain / w[idx]
+        knapsack(idx-1, pick, 0, sum_value + p[idx]*pick[idx])
+    end
+end
+
+items = []
+for i from 1 to n
+    //build array of [ratio, price, weight]
+    items.append(p[i]/w[i], p[i], w[i])
+sort(items)
+for i from 1 to n
+    //assign back to p and w
+    p[i] = items[i][2];
+    w[i] = items[i][3];
+    
+rational_knapsack(n, [0,.....,0], W)

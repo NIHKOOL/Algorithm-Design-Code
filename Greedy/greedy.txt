@@ -1,4 +1,8 @@
 Brute force : เลือกทุกอัน
 Greedy : คอนสร้างคำตอบจะเลือกทางที่ดีที่สุด best option
 
-gre
+greedy จะเลือกไปทางไหนสักทางหนึ่งโดย logic
+greedy need to PROOF
+
+
+
