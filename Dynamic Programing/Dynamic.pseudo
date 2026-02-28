@@ -1,0 +1,151 @@
+ResultType DC(Problem p) {
+    if (p is trival) {
+        solve p directly
+        return the result
+    } else {
+        //add
+        if p is solved
+            return table.lookup(p);
+        //*add
+        divide p into p1,p2,...,pn
+        for (i = 1 to n)
+            ri = DC(pi)
+        combine r1,r2,..rn into r
+        //save
+        table.save(p,r);
+        //*save
+        return r;
+
+    }
+
+}
+
+//optimize fibo =
+def fibo(n)
+    if (n == 0 || n == 1) return n;
+    f2 = 0
+    f1 = 1
+    for i from 2 to n
+        //calculaate current
+        f = f2 + f1
+        //prepare f1 and f2 for next round
+        f2 = f1
+        f1 = f
+    end
+    return f
+end
+
+//Maximum sum of subarray
+//before
+def mss(A,stop)
+    if (stop == 1)
+        return A[1]
+    r1 = mss(A,stop-1)
+    r2 = A[stop]
+    r3 = max_suffix(A,stop-1)+A[stop]
+    return max(r1,r2,r3)
+end
+
+def max_suffix(A,stop)
+    if stop == 1
+        return A[1]
+    return max(A[stop],A[stop]+max_suffix(A,stop-1))
+end
+
+//after top-down
+def mss(A,stop)
+    if (stop == 1)
+        return A[1]
+    r1 = mss(A,stop-1)
+    r2 = A[stop]
+    r3 = max_suffix(A,stop-1)+A[stop]
+    return max(r1,r2,r3)
+end
+
+def max_suffix(A[1..n],stop,table[1..n],done[1..n])
+    if stop == 1
+        return A[1]
+    if (done[stop])
+        return table[stop]
+    table[stop] = max(A[stop], A[stop]+max_suffix(A,stop-1))
+    done[stop] = true   
+    return table[stop]
+end
+
+def mss_bottom_up(A[1..n])
+    max_suf is array [1..n]
+    max_suf[1] = A[1]
+    for i from 2 to n
+        max_suf[i] = max(max_suf[i-1]+A[i],A[i])
+
+    mss = A[1]
+    for i from 2 to n
+        mss = max(mss, max(A[i], max_suf[i-1]))
+    return mss
+end
+
+//kadane
+def kadane(A[1..n])
+    suf = A[1]
+    mss = A[1]
+    for i from 2 to n
+        suf = max(A[i],suf+A[i])
+        mss = max(mss,suf)
+    return mss
+end
+
+//KNAPSACK naive
+def knapsack(W, w[1.n], p[1.n], idx, pick[1,n])
+    if (idx == 0)
+        sum_price = 0
+        sum_wight = 0
+        for i from 1 to n
+            if pick[i]
+                sum_price += p[i]
+                sum_ wight += w[i]
+        if (sum_wight <= W && sum_price > max)
+            max = sum_price
+
+    pick[idx] = false
+    knapsack(W, w, p, idx-1, pick)
+    pick[idx] = true
+    knapsack(W, w, p, idx-1, pick)
+end
+
+//naive
+def knapsack(W, w[1.n], p[1.n], idx, remain)
+    if (idx == 0)
+        reuturn 0
+    if (remain >= w[idx])
+        //r1 is that we don't pick item #idx
+        r1 = knapsack(W, w, p, idx-1, remain);
+        //r2 is that we pick item #idx
+        r2 = knapsack(W, w, p, idx-1, remain - w[idx] + p[idx]);
+        ans = max(r1, r2)
+        return ans;
+    else 
+        return knapsack(W, w, p, idx-1, remain)
+end
+
+//dynamic bottom-up -> O(Wn)zzz
+set all k[0][*] = 0 and all K[*][0] = 0
+for a = 1 to n
+    for b = 1 to W 
+        if (q[a] > b) 
+            K[a][b] = K[a-1][b];
+        else 
+            K[a][b] = max( K[a-1][b - w[a]] + p[a], K[a-1][b])
+return K[n][W]; 
+
+//coin change with least amount of coin
+set all k[0][*] = 0 and all K[*][0] = 0
+for a = 1 to n
+    for b = 1 to W
+        if (D[a] > b )
+            K[a][b] = K[a-1][b];
+        else 
+            K[a][b] = max( K[a-1][b - D[a]] + 1,
+                           K[a-1][b] )
+return K[n][W];
+
+//longest common subsequence

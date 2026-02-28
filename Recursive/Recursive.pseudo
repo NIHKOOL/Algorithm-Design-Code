@@ -1,0 +1,11 @@
+def counter(v[1..n], i, n) 
+    if (i > 0) 
+        v[i] = 0
+        counter(v, i-1, n)
+
+        v[i] = 1
+        counter(v, i-1, n)
+    else 
+        print v
+    end
+end 
