@@ -41,10 +41,10 @@ def rational_knapsack(idx, pick[1..n], remain, sum_value)
         return
     if (remain >= w[idx])
         pick[idx] = 1
-        knapsack(idx-1, pick, remain-w[idx], sum_value + p[idx])
+        rational_knapsack(idx-1, pick, remain-w[idx], sum_value + p[idx])
     else 
         pick[idx] = remain / w[idx]
-        knapsack(idx-1, pick, 0, sum_value + p[idx]*pick[idx])
+        rational_knapsack(idx-1, pick, 0, sum_value + p[idx]*pick[idx])
     end
 end
 
@@ -59,3 +59,67 @@ for i from 1 to n
     w[i] = items[i][3];
     
 rational_knapsack(n, [0,.....,0], W)
+
+//Activity selection brute force O(2pown * npow2)
+def intersect(p,q)
+    return start[p] <= stop[q] && stop[p] >= start[q]
+end
+
+def activity(idx, sol)
+    if idx == N
+        conflict = false
+        for p from 1 to sol.lenght
+            for q from p+1 to sol.length
+                if (p != q && intersect(sol[p], sol[q]))
+                    conflict = true
+                    break
+            if conflict
+                break;
+        if conflict == false && sol.lenght > max
+            max_lenght = sol.length
+            best = sol
+    else 
+        activity(idx + 1, sol)
+        activity(idx + 1, sol.append(idx))
+end
+
+max_lenght = 0
+activity(1, [])
+
+//Greedy v0.1 pick one that not overlap (WORNG)
+def greedy_1(idx, sol) 
+    if idx == N
+        max_lenght = sol.lenght
+        best = sol
+    else 
+        //check if job #idx conflict with
+        //job in sol[]
+        conflict = false
+        for p from 1 to sol.lenght
+            if (intersect(idx, sol[p]))
+                conflict = true
+                break  
+        if conflict
+            greedy_1(idx+1, sol)
+        else 
+            greedy_1(idx+1, sol.append(idx))
+end
+
+//Greedy2 (WORNG)
+def greedy_2()
+    jobs = []
+    for i in 1 to N 
+        duration = stop[i] - start[i] + 1;
+        jobs.append( [duration, start[i], stop[i]] )
+    sort(jobs)
+    for i in 1 to N
+        start[i] = job[i][2];
+        stop[i] = job[i][3];
+
+    // just use greedy v0.1 after sort
+    greedy_1(0,[])
+end
+
+//greedy2 (Wrong) หาอันที่ทับน้อยก่อน
+
+
