@@ -19,3 +19,7 @@ list grapt sit to sparce ( e ประมาณ n)
 
 #DFS (depth first search) use stack
 #BFS (Breath first search) similary to DFS but no tthe same order (use queue)
+    use for shortest path for unweighted graph
+
+Connected component (find path that  a to b mean also b to a) only for undirected graph
+    input : 

@@ -91,3 +91,36 @@ def dfs_by_stack(a,G)
                 visited[b] = true
                 s.push(a)
 end
+
+//BFS with Distance
+def bfs(a, G) 
+    dist[] = (-1...)
+    q = new Queue
+    q.push(a)
+    dist[a] = 0
+    while (q.size > 0)
+        u = q.front
+        q.pop
+        for b in G.adj(u)
+            if dist[b] == -1
+                dist[b] = dist[u] + 1 
+                s.push(b)
+end
+
+//Connected component problem
+def cc(G)
+    cc_num = 0
+    visited[] = [0,...]
+    for every u in G
+        if visited[u] == 0
+            cc_num += 1
+            dfs_cc(u ,G)
+end
+
+def dfs(a, G, visited, from)
+    visited[a] = cc_num
+    for b in G.adj(a)
+        if visited[b] == 0
+            from[b] == 0
+            dfs(b, G, visited)
+end
