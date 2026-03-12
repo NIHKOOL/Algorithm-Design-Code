@@ -1,5 +1,5 @@
 //Finding Path 
-//brute force
+//brute force 0.1
 def brute_path (p, idx, used, G) 
     if idx < n
         if p[idx - 1] == v
@@ -20,4 +20,20 @@ def is_a_path(G, p)
         unless G.has_edge(p[i], p[i+1])
             return false
     return true
+
+//better brute force 0.2
+def brute_path(p, idx, used, G)
+    if idx < n
+        if p[idx-1] == v
+            return true
+        for b in G.adj(p[idx - 1]) 
+            if used[b] == false
+                used[b] = true
+                p[idx] = b
+                if brute_path(p, idx+1, used)
+                    return true
+                used[b] = false
+        return false
+
+
 
