@@ -4,9 +4,14 @@ nodes()
 adj(v1) 
 has_edge(v1, v2)
 
-Data structure for graph
+Data structure for graphse
     Adjacency matrix (2D array) A[x][y] mean x connect y
     Adjacency lists A[x] is the lists of all neightbor of x
     incidence matrix A[1..n][1..e] node and egde;
     
+matrix graph suit to dense (e -> n power 2)
+list grapt sit to sparce ( e ประมาณ n)
 
+#Finding Path
+    input G = (V, E)
+    output true when path is connected
