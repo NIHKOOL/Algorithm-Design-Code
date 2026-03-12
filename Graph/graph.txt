@@ -17,5 +17,5 @@ list grapt sit to sparce ( e ประมาณ n)
     output true when path is connected
     //brute force
 
-#DFS (depth first search)
-
+#DFS (depth first search) use stack
+#BFS (Breath first search) similary to DFS but no tthe same order (use queue)

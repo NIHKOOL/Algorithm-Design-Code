@@ -77,3 +77,17 @@ def dfs_by_stack(a,G)
                 visited[b] = true
                 s.push(a)
 end
+
+//BFS (or DFS but use queue)
+def dfs_by_stack(a,G) 
+    s = new Queue
+    s.push(a)
+    visited[a] = true
+    while (s.size > 0) 
+        u = s.front
+        s.pop
+        for b in G.adj(u)  
+            if visited[b] == false 
+                visited[b] = true
+                s.push(a)
+end
