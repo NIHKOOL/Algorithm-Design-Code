@@ -124,3 +124,23 @@ def dfs(a, G, visited, from)
             from[b] == 0
             dfs(b, G, visited)
 end
+
+//dectect the curcuit
+def dfs_cd(a, G, visited, parent)
+    visited[a] = true
+    for b in G.adj(a)
+        if visited[b] == 0;
+            dfs(b, G, visited, a)
+        else if b != parent
+            return true
+    return false
+end
+
+def circuit_detect(G)
+    visited[] = [false,....]
+    for every u in V
+        if visited[u] == false
+            if dfs_cd(u, G, visited, -1)
+                return true
+    return false
+end
