@@ -20,6 +20,7 @@ def is_a_path(G, p)
         unless G.has_edge(p[i], p[i+1])
             return false
     return true
+end
 
 //better brute force 0.2
 def brute_path(p, idx, used, G)
@@ -63,3 +64,16 @@ def dfs(a, G, visited, from)
             dfs(b, G, visited, from)
 end 
 
+//DFS with stack
+def dfs_by_stack(a,G) 
+    s = new Stack
+    s.push(a)
+    visited[a] = true
+    while (s.size > 0) 
+        u = s.top
+        s.pop
+        for b in G.adj(u)  //<== matrix O(npow2) adg O(n+e)
+            if visited[b] == false 
+                visited[b] = true
+                s.push(a)
+end
