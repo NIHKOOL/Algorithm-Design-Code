@@ -15,5 +15,7 @@ list grapt sit to sparce ( e ประมาณ n)
 #Finding Path
     input G = (V, E)
     output true when path is connected
-
     //brute force
+
+#DFS (depth first search)
+

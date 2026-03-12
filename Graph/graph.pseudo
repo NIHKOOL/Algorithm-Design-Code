@@ -35,5 +35,31 @@ def brute_path(p, idx, used, G)
                 used[b] = false
         return false
 
+//Find Path DFS
+def dfs(a, G, visited)
+    visited[a] = true
+    for b in adj(a)
+        if visited[b] == false
+            dfs(b, G, state)
+end
 
+def dfs_path(a, G, visited)
+    visited[a] = true
+    if (a == v) 
+        return true
+    for b in adj(a) 
+        if visited[b] == false
+            if def_path(b, G, visited) 
+                return true
+    return false
+end
+
+//From
+def dfs(a, G, visited, from) 
+    visied[a] = true
+    for all b in adj(a) 
+        if visited[b] == false
+            from[b] = a
+            dfs(b, G, visited, from)
+end 
 
