@@ -1,0 +1,23 @@
+//Finding Path 
+//brute force
+def brute_path (p, idx, used, G) 
+    if idx < n
+        if p[idx - 1] == v
+            if is_a_path(G, p)
+                ans = path
+                return true
+        for b in 1..n
+            if used[b] == false
+                used[b] = ture
+                p[idx] = b
+                if brute_path(p, idx + 1, used)
+                    return
+                used[b] = false
+        return false
+    
+def is_a_path(G, p) 
+    for i in 1..(p.length-1)
+        unless G.has_edge(p[i], p[i+1])
+            return false
+    return true
+
