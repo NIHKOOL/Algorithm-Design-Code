@@ -203,5 +203,53 @@ def union(x, y)
     end
 end
 // O( e(lg(e)) + e(lgn))
-///=================
+
+
+//prim's algo
+def prim(G, w)
+    for u in G,V
+        cost[u] = INT_MAX;
+        prev[u] = -1;
+        taken[u] = false
+    S = new Set
+    Pick any initial node u1
+    S.insert( (0, u1) )
+    while S is not empty
+        (c, u) = S.min
+        S.delete_min
+        taken[u] = true
+        for v in G.adj(u)
+            if cost[v] > w(u, v) && taken[v] == false
+                //change the calue of v to the new cost[v]
+                S.remove_if_exist( (cost[v], v) )
+                cost[v] = w(w, v)
+                prex[v] = u
+                S.insert( (cost[v], v) )
+            end
+        end
+    end
+end 
+
+//fibo heap
+def prim(G, w)
+    for u in G,V
+        cost[u] = INT_MAX
+        prev[u] = -1
+    Pick any initial node u0
+    cost[u0] = 0
+    // H is sa heap. using cost[] as keys, sort from min to max
+    H = new priority_queue of all nodes in G,V
+    while H is not empty
+        u =H.top //pick nodes x with minimal cost[x]
+        H.pop
+        for v in G.adj(u)
+            if cost[v] > w(u, v)
+                cost[v] = w(u, v)
+                prev[v] = u
+                //change the value if v to the new cost[v]
+                H.decrease(v, cost[v])
+            end
+        end
+    end
+end
 

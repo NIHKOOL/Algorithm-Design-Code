@@ -36,4 +36,6 @@ Minimum spanning tree : every node can transfer data to eachother';
 
     Prim : select minimal node and edges ;
         partial MST
+
+
         
