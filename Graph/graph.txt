@@ -33,3 +33,7 @@ Minimum spanning tree : every node can transfer data to eachother';
     Kruskal G = (V,E) choose small w of edges first
     Data structure 
         makeset(n) findset(x) union(x, y)
+
+    Prim : select minimal node and edges ;
+        partial MST
+        
