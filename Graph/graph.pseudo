@@ -144,3 +144,64 @@ def circuit_detect(G)
                 return true
     return false
 end
+
+//Topological sorting
+//Kahn Algo
+def tope_sort(G) // <= O(n + e)
+    ans = []
+    q = new Queue
+    let Z be any node in G.V that has zero in-degree
+    for each z in Z
+        q.push(z)
+    while q is not empty
+        u = q.front
+        q.pop
+        ans.push_back(u)
+        for v in G.adj(u)
+            remove edge (u, v) from G.E
+            if v has zero in-degree
+                q.push(v)
+    if G.E is not empty
+        return "error"
+    return ans
+end
+
+//Minimum spanning tree
+//Kruskal's  Algo O(n (n + e)) + O(e log(e))
+//find(x) 2e  O(n)
+//union(x, y) n-1 O(n)
+def Kruskal(G, w)
+    ds = new DisjointSet
+    ds.makeset(n);
+
+    X = []// X is the answer
+    Sort the edges G.E by weight w
+    for each edge (u, v) in G.E (in increasing order of weight)
+        if ds.find(u) != ds.find(v)
+            X.add(u, v) //add (u,v) to the answer
+            ds.union(u, v)
+            if (x.size == n-1) break;
+    return X
+end
+
+def findset(x)
+    if x == -1 return x;
+    //path comparison
+    p[x] = findset(p[x]);
+    return p[x];
+end
+
+def union(x, y)
+    s1 = find(x)
+    s2 = find(y)
+    if S[s1] > S[s2]
+        p[s2] = s1;
+        S[s1] = S[s1] + S[s2]
+    else 
+        p[s1] = s2;
+        S[s2] = S[s1] + S[s2]
+    end
+end
+// O( e(lg(e)) + e(lgn))
+///=================
+

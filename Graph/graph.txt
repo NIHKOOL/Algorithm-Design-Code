@@ -21,5 +21,15 @@ list grapt sit to sparce ( e ประมาณ n)
 #BFS (Breath first search) similary to DFS but no tthe same order (use queue)
     use for shortest path for unweighted graph
 
-Connected component (find path that  a to b mean also b to a) only for undirected graph
-    input : 
+Connected component (find path that  a to b mean also b to a) only for undirected graph;
+    
+Topological Sorting : task might need another all task that point to current task to finish firsts
+    Directed Acyclic graph (DAG) : grah that can do Topological Sorting ;
+
+Problem find a sequence of Toposort : there must be nodes with in-degree of 0;
+Minimum spanning tree : every node can transfer data to eachother'; 
+    if graph has n node need to choose n-1 edges;
+    undirected graph 
+    Kruskal G = (V,E) choose small w of edges first
+    Data structure 
+        makeset(n) findset(x) union(x, y)
