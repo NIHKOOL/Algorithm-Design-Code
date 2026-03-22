@@ -37,5 +37,11 @@ Minimum spanning tree : every node can transfer data to eachother';
     Prim : select minimal node and edges ;
         partial MST
 
+Shortest Path Problem
+    BFS : นำน้ำหนัก edge เปลี่ยนเป็น node แทรก ระหว่างปม (auxiliary nodes)
+    Alarm Clock algorithm : Dijkstra's - same like prim but not have T
+        Dijkstra's can run in directed graph 
+        if weight become NEGATIVE this may not work;
+        
 
         

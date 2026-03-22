@@ -253,3 +253,25 @@ def prim(G, w)
     end
 end
 
+//shortest path - dijkstra's---- O( (n+e)lgn )
+def dijkstra(G, w, s)
+    for u in G.V 
+        dist[u] = INT_MAX
+        prev[u] = -1
+    end
+    S = new Set
+    S.insert( (0, s) )
+    while S is not empty
+        (T, u) = S.min
+        for v in G.adj(u)
+            if dist[v] > T + w(u, v)
+                //change the value of v to the new cost[v]
+                S.remove_if_exist( (dist[v], v) )
+                dist[v] = T + w(u, v)
+                prev[v] = u
+                S.insert( (dist[v], v) )
+            end
+        end 
+    end
+    return dist 
+end 
