@@ -42,6 +42,6 @@ Shortest Path Problem
     Alarm Clock algorithm : Dijkstra's - same like prim but not have T
         Dijkstra's can run in directed graph 
         if weight become NEGATIVE this may not work;
-        
+    Bellman-Ford : Can detect negative cycle to but O(npow3)
 
         

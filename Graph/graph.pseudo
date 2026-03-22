@@ -275,3 +275,25 @@ def dijkstra(G, w, s)
     end
     return dist 
 end 
+
+//Bellman-Ford Algorithm
+def bellman_ford(G, w, s)
+    for u in G.V
+        dist[u] = INT_MAX
+        prev[u] = -1
+    end
+    dist[s] = 0
+    for i from 1 to n-1
+        for all edges (a, b) in G.E
+            if dist[b] > dist[a] + w(a, b)
+                dist[b] = dist[a] + w(a, b)
+                prev[b] = a
+            end 
+        end 
+    end
+    //negative loop
+    for all edges (a, b) in G.E
+        if dist[b] > dist[a] + w(a, b)
+            return "negative cycle"
+    return dist
+end   
