@@ -1,0 +1,4 @@
+State Space Search 
+    The next level brute force
+
+Brute force need candidate solution set and test candidate
