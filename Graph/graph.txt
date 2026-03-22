@@ -44,4 +44,6 @@ Shortest Path Problem
         if weight become NEGATIVE this may not work;
     Bellman-Ford : Can detect negative cycle to but O(npow3)
 
-        
+ALL Pair shortest Path problem O(npow3)
+    ระยะทางสั้นสุดของทุกคู่ปม
+    Floyd-Warshell : มหัศจรรย์

@@ -297,3 +297,14 @@ def bellman_ford(G, w, s)
             return "negative cycle"
     return dist
 end   
+
+def floyd_warshall(G, w) // O(npow3)
+    for i = 1 to n
+        for j = 1 to n
+            dist[i][j] = w(i, j)
+    
+    for k = 1 to n
+        for i = 1 to n 
+            for j = 1 to n 
+                disti[i][j] = min(dist[i][j], dist[i][k] + dist[k][j])
+end
