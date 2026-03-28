@@ -289,7 +289,7 @@ def bellman_ford(G, w, s)
                 dist[b] = dist[a] + w(a, b)
                 prev[b] = a
             end 
-        end 
+            end 
     end
     //negative loop
     for all edges (a, b) in G.E
@@ -298,7 +298,7 @@ def bellman_ford(G, w, s)
     return dist
 end   
 
-def floyd_warshall(G, w) // O(npow3)
+def floyd_warshall(G, w) // O(n^3)
     for i = 1 to n
         for j = 1 to n
             dist[i][j] = w(i, j)
