@@ -1,0 +1,79 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+
+using namespace std;
+
+// ตั้งค่าตัวแปรแทนค่าอนันต์ (Infinity) สำหรับโหนดที่ยังไปไม่ถึง
+const int INF = 1e9; 
+
+int main() {
+    // 1. สร้างกราฟตัวอย่าง (มี 5 โหนด คือ 0 ถึง 4)
+    int n = 5;
+    
+    // กราฟแบบมีน้ำหนัก: เก็บข้อมูลเป็น pair<น้ำหนัก, โหนดปลายทาง>
+    vector<vector<pair<int, int>>> adj(n);
+
+    // กำหนดเส้นเชื่อมแบบมีทิศทาง (Directed Graph)
+    // รูปแบบ: adj[ต้นทาง].push_back({น้ำหนัก, ปลายทาง});
+    adj[0].push_back({10, 1});
+    adj[0].push_back({3, 2});
+    adj[1].push_back({2, 3});
+    adj[2].push_back({1, 1});
+    adj[2].push_back({8, 3});
+    adj[2].push_back({2, 4});
+    adj[3].push_back({4, 4});
+    adj[4].push_back({5, 3});
+
+
+
+
+
+
+    vector<int> dist(n, INF);
+    
+    priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+
+    int start_node = 0;
+    dist[start_node] = 0;         
+    pq.push({0, start_node});     
+
+    while (!pq.empty()) {
+        int current_dist = pq.top().first;
+        int u = pq.top().second;
+        pq.pop();
+
+        if (current_dist > dist[u]) {
+            continue;
+        }
+
+        for (auto edge : adj[u]) {
+            int w = edge.first;
+            int v = edge.second;
+
+            if (current_dist + w < dist[v]) {
+                
+                dist[v] = current_dist + w; 
+                
+                pq.push({dist[v], v});
+            }
+        }
+    }
+
+
+
+
+
+    // 5. แสดงผลลัพธ์
+    cout << "ระยะทางสั้นที่สุดจากโหนดเริ่มต้น (" << start_node << ") ไปยังโหนดอื่นๆ:\n";
+    cout << "---------------------------------------------------\n";
+    for (int i = 0; i < n; i++) {
+        if (dist[i] == INF) {
+            cout << "ไปโหนด " << i << " : ไปไม่ถึง (ไม่มีเส้นทาง)\n";
+        } else {
+            cout << "ไปโหนด " << i << " : ใช้ระยะทาง " << dist[i] << "\n";
+        }
+    }
+
+    return 0;
+}
