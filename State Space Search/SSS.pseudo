@@ -25,4 +25,31 @@ while S is not empty
         else 
             generate all next step from curr
             put them into S
-            
+
+//Triple-Half
+void BFS(int goal) {
+    queue q;           // queue of int
+    hash  h;           // hash of int
+
+    q.push(1); 
+    h.insert(1);
+    while (q.isEmpty() == false) {
+        curr = q.front(); 
+        q.pop();
+
+        if (curr == goal) {
+            printf("found!\n");
+            return;
+        }
+
+        if (!h.contain(curr * 3)) {
+            q.push(curr * 3);
+            h.insert(curr * 3);
+        }
+
+        if (!h.contain(curr / 2)) {
+            q.push(curr / 2);
+            h.insert(curr / 2);
+        }
+    }
+}

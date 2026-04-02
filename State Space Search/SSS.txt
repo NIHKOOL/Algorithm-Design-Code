@@ -15,5 +15,14 @@ State Space Search
     sss_v0.4 : คล้าย 0.3 แต่ห้ามเดิมเลขซ้ำ
 
 DFS and BFS : same as graph
+    DFS : stack, less space, loop forever
+    BFS : queue, large space, solution near root
+
+Triple and Half Problem
+    คำนวน *3 หรือ /2 ให้เท่ากับ input [T,H]
+    ทุกปมเป็น candidate 
+    0.1 : DFS
+    0.2 : สักอย่าง
+    BFS : good ไล่เป็นระดับ
 
 
