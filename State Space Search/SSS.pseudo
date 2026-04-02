@@ -15,3 +15,14 @@ void e_queen(int step, vector<int> &col, vector<bool> &used) {
     }
 }
 
+//BFS-DFS
+storage S  
+put initial state to S
+while S is not empty
+    curr = S.remove_one
+        if curr is a candidate solution 
+            check(curr)
+        else 
+            generate all next step from curr
+            put them into S
+            

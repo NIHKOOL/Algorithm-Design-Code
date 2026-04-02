@@ -13,4 +13,7 @@ State Space Search
     sss_v0.2 : ทำคล้ายเดิมแต่นับจำนวนถ้าครบก็พอ
     sss_v0.3 : จะวาง Queen ไว้ 8 แถว [1,6,1,7,5,6,7,8] บอก collumn
     sss_v0.4 : คล้าย 0.3 แต่ห้ามเดิมเลขซ้ำ
-    
+
+DFS and BFS : same as graph
+
+
