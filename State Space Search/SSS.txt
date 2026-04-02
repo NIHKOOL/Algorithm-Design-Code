@@ -39,6 +39,9 @@ Branch-and-Bound
     constraint and objective function
     Bounding Heuristic เดาให้ดีเกินจริง ไม่แย่เกินจริง
 
-
+knapsack problem แก้คนละแบบกับ Greedy
+    ราคาดีสุดน้ำหนักห้ามเกิน
+    Backtracking : เก็บผลรวม w, p ถ้า w เกินปัดทิ้ง
+    B&B : 
 
 

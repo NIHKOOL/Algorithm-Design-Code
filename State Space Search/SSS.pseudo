@@ -66,3 +66,35 @@ void search(int step, vector<int> &sol, int total) {
         if (sum == k) {printf("Yes\n")}
     }
 }
+
+//knapsack - backtrack
+void knapsack(int step, vector<int> &sol, int sumP, int  sumW) {
+    if (sumW > W) return;
+    if (step < n) {
+        sol[step] = 0;
+        knapsack(step + 1, sol, sumP, sumW);
+        sol[step] = 1;
+        knapsack(step + 1, sol, sumP + v[step], sumW + w[step]);
+    } else {
+        if (sumP > max && sumW <= W) {max = sumP;}
+    }
+}
+
+//knapsack - B&B
+tail[n-1] = v[i];
+for (int i = n - 2; i >= 0; i--) tail[i] = tail[i+1] + v[i];
+
+void knapsack(int step, int* sol, int sumP, int sumW) {
+    if (sumW > W) return;
+    if (tail[step] + sumP < max) return;
+    if (step < n) {
+        sol[step] = 0;
+        knapsack(step + 1, sol, sumP, sumW);
+        sol[step] = 1;
+        knapsack(step + 1, sol, sumP + v[step], sumW + w[step]);
+        
+    } else {
+        if (sumP > max && sumW <= W) { max = sumP; }
+    }
+}
+
