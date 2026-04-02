@@ -32,3 +32,13 @@ Backtracking
 Sum of Subset
     DFS : ดูผลรวมแล้วตอบ
     Backtracking : ถ้าปมไหนบวกเกินก็ไม่ทำต่อ
+
+Branch-and-Bound
+    Backtracking ของ COP (พวกหาค่าดีสุด)
+    เดาว่า "ที่เหลือทำได้ดีแต่ไหน"
+    constraint and objective function
+    Bounding Heuristic เดาให้ดีเกินจริง ไม่แย่เกินจริง
+
+
+
+
