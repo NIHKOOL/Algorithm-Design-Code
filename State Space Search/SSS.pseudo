@@ -1,0 +1,17 @@
+
+//8-Queen v0.4
+void e_queen(int step, vector<int> &col, vector<bool> &used) {
+    if (step < 8) {
+        for (int i = 0; i < 8; i++) {
+            if (!used[i]) {
+                used[i] = true;
+                col[step] = i;
+                e_queen(step + 1, col, used);
+                used[i] = false;
+            }
+        }
+    } else {
+        check(col);
+    }
+}
+

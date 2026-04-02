@@ -1,4 +1,16 @@
-State Space Search 
-    The next level brute force
-
 Brute force need candidate solution set and test candidate
+
+SSS : จากความรู้ที่ทำมากก่อนหน้า จะทำให้ลดขนาด choice ได้
+State Space Search 
+    The next level brute force.
+    Recursion tree ใช้พิจารณาลำดับของ candidate
+    partial solution คำตอบก่อน candidate : ใช่ตัด choice
+    initial state(start point) -> partial > candidate solution
+
+8-Queen Problem 
+    วาง Queen ให้กินกันไม่ได้ในตาราง ;
+    sss_v0.1 : มี array 64 ช่อง เลือก มี ไม่มี -> ตาย 2^(8*8);
+    sss_v0.2 : ทำคล้ายเดิมแต่นับจำนวนถ้าครบก็พอ
+    sss_v0.3 : จะวาง Queen ไว้ 8 แถว [1,6,1,7,5,6,7,8] บอก collumn
+    sss_v0.4 : คล้าย 0.3 แต่ห้ามเดิมเลขซ้ำ
+    
