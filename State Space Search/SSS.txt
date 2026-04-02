@@ -25,4 +25,10 @@ Triple and Half Problem
     0.2 : สักอย่าง
     BFS : good ไล่เป็นระดับ
 
+Backtracking
+    ดู partial state ถ้าไม่ใช่ไม่ต้องทำต่อ 
+    permutation by combination
 
+Sum of Subset
+    DFS : ดูผลรวมแล้วตอบ
+    Backtracking : ถ้าปมไหนบวกเกินก็ไม่ทำต่อ

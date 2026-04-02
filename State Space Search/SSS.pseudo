@@ -53,3 +53,16 @@ void BFS(int goal) {
         }
     }
 }
+
+//Sum of Subset - backtrack
+void search(int step, vector<int> &sol, int total) {
+    if (step < n) {
+        if (total > k) return;
+        sol[step] = 0;
+        search(step + 1, sol, total);
+        sol[step] = 1;
+        search(step + 1, sol, total + D[i]);
+    } else {
+        if (sum == k) {printf("Yes\n")}
+    }
+}
