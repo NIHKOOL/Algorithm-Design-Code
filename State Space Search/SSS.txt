@@ -38,10 +38,16 @@ Branch-and-Bound
     เดาว่า "ที่เหลือทำได้ดีแต่ไหน"
     constraint and objective function
     Bounding Heuristic เดาให้ดีเกินจริง ไม่แย่เกินจริง
+        ไม่ underestimate  
 
 knapsack problem แก้คนละแบบกับ Greedy
     ราคาดีสุดน้ำหนักห้ามเกิน
     Backtracking : เก็บผลรวม w, p ถ้า w เกินปัดทิ้ง
-    B&B : 
+    B&B : เก็บ prefix sum ก่อนที่เหลือคล้าย Bt
+    ??? ทำไม Greedy ดีกว่า 
 
+ใด ๆ ถ้าวาด Recursive ก่อนเขียน code จะง่ายขึ้น
+    
+Coin change problem
+    มี coin หลายแบบทอนเงินให้พอดีจำนวน coin น้อยสุด
 
