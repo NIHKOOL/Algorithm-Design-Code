@@ -46,8 +46,16 @@ Complexity Class
     NP :senceเป็น exponential ได้ใหญ่กว่า P
         ถ้าแก้ได้ "YES" ต้องตรวจคำตอบได้ใน polynomail time
         easy problem + something else
+    NP-Hard : ปัญหาที่คนใน NP reduce ไปได้
+    NP-C : NP-hard instersect NP
+    P = NP?
     
-    
+Boolean Satisfiability problem
+    Given CNF (product of sum)
+    สามารถ assign ค่าให้แต่ละพจน์ แล้วทำให้เป็นจริงได้ไหม 
+
+Approximation algo
+    ผิดไม่เกิน k% 
 
 
 
