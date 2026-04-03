@@ -1,0 +1,9 @@
+//Halting promblem is undecidable
+bool kaboom(x) {
+    if (A(x,x)) {
+        while (true) do;
+    } else {
+        printf("Done");
+    }
+}
+

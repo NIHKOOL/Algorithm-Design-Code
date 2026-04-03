@@ -1,0 +1,55 @@
+NP-Complete - Is this promblem hard?
+    แยกประเภทปัญหา ยากไหมสำหรับ computer
+    time and space (CPU, RAM)
+    Harder mean "takes more power to solve"
+
+Easy : O(T(n)) where T(n) is polynomail
+Hard : something else
+
+๊ืUnsolvable Problem
+    ไม่มี Algo ที่แก้ได้เลย
+    undecidable problem
+
+Halting promblem
+    ให้ S มาตอบ "YES" ถ้า program จบการทำงานถ้าไม่ "NO"
+
+mortal matrix
+    ให้ matrix มา ถามว่า มีลำดับการคูณ input ไหมที่ ได้ matrix 0;
+
+Incompleteness theorem - Godel
+    P = ประโยค P เป็นเท็จ ---> ทำให้หาค่าความจริงไม่ได้
+    Parodox
+
+Complexity Class
+    แยก ยากและง่ายได้แต่เส้นแบ่งจะ Blend กัน
+
+    Decision problem - output is either "Yes" or "No";    
+    Function problem - โจทย์ส่วนมากที่ทำมา output ไม่ได้มีแค่ "Yes" or "No" 
+
+    All Function problem can be solved by decision promblem.
+    Decision problem is EVERYTHING!!!
+
+Comparing Haedness
+    Reduction : solved problem A by tranforming it into another problem B.
+        Easily mean polinomaial time
+        A ลดรูปเป็น B (B แก้ได้ใน polinomaial) แล้ว A แก้ได้ใน polinomaial --> เอาสองอันมาคูณกัน 
+        แปลงปัญหาใหม่เป็นปัญหาเก่า
+        Polynomially Reducible 
+        เวลา A ลดรูปเป็น B --- A จะง่ายกว่าหรือเท่ากับ B (งงอะดิ)
+            ขยายความ ถ้า B ใช้ computer 1 แก้ได้ A ก็ต้องแก้ได้ด้วย computer 1 ได้
+            แต่ถ้า A แก้ด้วย computer 2 ได้แล้ว B จะแก้ได้ไหมไม่รู้
+            computer ที่ B ใช้จะเก่งกว่า
+
+Complexity Class
+    P :set of problem that have polynomial algo 
+        easy problem
+    NP :senceเป็น exponential ได้ใหญ่กว่า P
+        ถ้าแก้ได้ "YES" ต้องตรวจคำตอบได้ใน polynomail time
+        easy problem + something else
+    
+    
+
+
+
+
+
