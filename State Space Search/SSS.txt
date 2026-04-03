@@ -51,3 +51,18 @@ knapsack problem แก้คนละแบบกับ Greedy
 Coin change problem
     มี coin หลายแบบทอนเงินให้พอดีจำนวน coin น้อยสุด
 
+Least Cost Search (Best First Search)
+    priority queue from bounding Heuristic function
+
+15 puzzle problem
+    รับตารางมา หาลำดับการเลืื่อนโดยเลื่อนให้น้อยสุด
+    [(1,  2,  3 ,  4)
+    ,(5,  6,  7 ,  8)
+    ,(9,  10, 11, 12)
+    ,(13, 14, 15    )]
+    เลื่อนช่องวา่ง
+    Backtracking : หน้าตาเหมือนเดิมไม่ต้องทำต่อ ห้ามเดินทิศตรงข้ามกับล่าสุด และ ห้ามเกินตาราง
+    Bounding heurictic#1 - นับช่องที่ผิด นับการขยับ เอาสองอันมาบวกกัน best first search ทำต่ออันน้อยสุด
+    Bounding heurictic#2 - L-1 distance 
+
+
