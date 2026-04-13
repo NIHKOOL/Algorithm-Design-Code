@@ -14,9 +14,9 @@ int suffix_max[55]; // เก็บผลรวมพลังตั้งแต
 
 int main() {
     ios::sync_with_stdio(false); cin.tie(NULL);
-    if (!(cin >> n)) return 0; [cite: 7]
+    if (!(cin >> n)) return 0;
 
-    for (int i = 1; i <= n; i++) cin >> power[i]; [cite: 8]
+    for (int i = 1; i <= n; i++) cin >> power[i]; 
 
     // คำนวณ Suffix Sum เพื่อใช้ทำ Bound (ผลรวมพลังที่เหลืออยู่ทั้งหมดที่เป็นไปได้)
     suffix_max[n + 1] = 0;
@@ -25,9 +25,9 @@ int main() {
     }
 
     for (int i = 1; i <= n; i++) {
-        string row; cin >> row; [cite: 9]
+        string row; cin >> row; 
         for (int j = 1; j <= n; j++) {
-            adj[i][j] = row[j - 1] - '0'; [cite: 11]
+            adj[i][j] = row[j - 1] - '0'; 
         }
     }
 
@@ -70,6 +70,6 @@ int main() {
         }
     }
 
-    cout << max_power << endl; [cite: 13]
+    cout << max_power << endl;
     return 0;
 }
